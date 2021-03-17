@@ -40,7 +40,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede 
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: diy.config
+  CONFIG_FILE: config.20200519
   DIY_OP_SH: diy-lede.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
