@@ -7,9 +7,9 @@ rm -rf package/lean/luci-theme-argon
 # 除了第一行的#!/bin/bash不要动，其他的设置，前面带#表示不起作用，不带的表示起作用了（根据你自己需要打开或者关闭）
 #
 
-# 修改openwrt登陆地址,把下面的192.168.2.2修改成你想要的就可以了，其他的不要动
+# 修改openwrt登陆地址,把下面的192.168.1.2修改成你想要的就可以了，其他的不要动
 #sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
-
+sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 #修改内核版本（下面两行代码前面有#为源码默认最新5.4内核,没#为4.19内核,默认修改X86的，其他机型L大那里target/linux查看，对应修改下面的路径就好）
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.14/g' ./target/linux/ramips/Makefile  #修改内核版本
@@ -24,6 +24,10 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 
 
 #添加自定义插件链接（自己想要什么就github里面搜索然后添加）
+
+git clone https://github.com/ujincn/luci-app-smartdns-compat.git package/luci-app-smartdns-compat
+git clone https://github.com/pymumu/smartdns.git package/smartdns
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone -b 18.06 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge  #主题-edge-动态登陆界面
 #git clone -b master https://github.com/vernesong/OpenClash.git package/luci-app-openclash  #openclash出国软件
 #git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash  #clash出国软件
